@@ -26,7 +26,7 @@ public class GetStarted extends AppCompatActivity {
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(GetStarted.this, "Welcome to Vocably!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GetStarted.this, "Welcome to Vocably !", Toast.LENGTH_SHORT).show();
                 // Later you can navigate to LoginActivity here
             }
         });
