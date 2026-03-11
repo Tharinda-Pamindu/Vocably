@@ -1,0 +1,71 @@
+package com.example.vocably.auth;
+
+import static android.content.ContentValues.TAG;
+
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.example.vocably.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class Register extends AppCompatActivity {
+
+    private TextInputLayout txtEmail, txtPassword, txtConfirmPassword;
+    private Button btnRegister;
+    private TextView clickToLogin;
+    private FirebaseAuth mAuth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_register);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        mAuth = FirebaseAuth.getInstance();
+        txtEmail = findViewById(R.id.txtEmail);
+        txtPassword = findViewById(R.id.txtPassword);
+        txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
+        btnRegister = findViewById(R.id.btnRegister);
+        clickToLogin = findViewById(R.id.clickToLogin);
+
+        clickToLogin.setOnClickListener(V -> {
+            //TODO : Implement redirect to the login activity functionality
+            Intent intent = new Intent(Register.this, Login.class);
+
+            Bundle bundle = ActivityOptions.makeCustomAnimation(Register.this,
+                    android.R.anim.slide_out_right,
+                    android.R.anim.slide_in_left).toBundle();
+
+            startActivity(intent, bundle);
+            finish();
+        });
+
+        btnRegister.setOnClickListener(V -> {
+            //TODO : Implement register functionality
+        });
+
+    }
+}
