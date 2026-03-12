@@ -74,9 +74,9 @@ Outputs: `app/build/outputs/apk/{debug|release}/`.
 - Avoid hardcoded colors; use theme attrs and palette resources.
 
 ## Team
-- Name 1 — Role (replace with your team member)
-- Name 2 — Role
-- Name 3 — Role
+- [Tharinda-Pamindu](https://github.com/Tharinda-Pamindu)
+- [Dilakshi-Sakila](https://github.com/Dilakshi13)
+- [Shirani-Hansika](https://github.com/shiranihansika)
 - Name 4 — Role
 
 ## Troubleshooting
