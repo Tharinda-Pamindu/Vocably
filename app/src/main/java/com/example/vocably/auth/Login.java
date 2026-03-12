@@ -18,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.vocably.MainActivity;
 import com.example.vocably.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,7 +45,7 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        try{
+        try {
             Intent registeredUser = getIntent();
             if (registeredUser != null) {
                 String email = registeredUser.getStringExtra("EMAIL");
@@ -85,6 +86,15 @@ public class Login extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                Intent dashBoardIntent = new Intent(Login.this, MainActivity.class);
+                                Bundle bundle = ActivityOptions.makeCustomAnimation(Login.this,
+                                        android.R.anim.slide_in_left,
+                                        android.R.anim.slide_out_right).toBundle();
+                                startActivity(dashBoardIntent, bundle);
+                                finish();
+
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
