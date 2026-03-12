@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,7 @@ import com.google.android.material.card.MaterialCardView;
 import com.example.vocably.R;
 import com.example.vocably.db.dto.WordDto;
 import com.example.vocably.model.Word;
+import com.example.vocably.tts.TextToSpeechManager;
 import com.example.vocably.view.ViewWord;
 
 import java.util.List;
@@ -24,12 +27,24 @@ import java.util.List;
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder> {
 
     private List<Word> words;
-
-    private LayoutInflater layoutInflater;
+    private final LayoutInflater layoutInflater;
+    private final TextToSpeechManager textToSpeechManager;
 
     public WordAdapter(List<Word> words, LayoutInflater layoutInflater) {
         this.words = words;
         this.layoutInflater = layoutInflater;
+        Context context = layoutInflater.getContext();
+        textToSpeechManager = new TextToSpeechManager(context, new TextToSpeechManager.InitListener() {
+            @Override
+            public void onReady() {
+                // no-op
+            }
+
+            @Override
+            public void onError(String message) {
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -42,8 +57,16 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
-        holder.txtWord.setText(words.get(position).getWord());
-        holder.txtDescription.setText(words.get(position).getMeaning());
+        Word word = words.get(position);
+        holder.txtWord.setText(word.getWord());
+        holder.txtDescription.setText(word.getMeaning());
+        holder.btnSpeakWord.setOnClickListener(v -> {
+            if (!textToSpeechManager.isReady()) {
+                Toast.makeText(v.getContext(), "Text-to-speech is loading", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            textToSpeechManager.speak(word.getWord());
+        });
     }
 
     @Override
@@ -55,12 +78,14 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
         private final TextView txtWord;
         private final TextView txtDescription;
         private final MaterialCardView cardWord;
+        private final ImageButton btnSpeakWord;
 
         public WordViewHolder(View itemView) {
             super(itemView);
             txtWord = itemView.findViewById(R.id.txtWord);
             txtDescription = itemView.findViewById(R.id.txtDescription);
             cardWord = itemView.findViewById(R.id.cardWord);
+            btnSpeakWord = itemView.findViewById(R.id.btnSpeakWordItem);
             View clickableView = cardWord != null ? cardWord : itemView;
             clickableView.setOnClickListener(this);
         }
