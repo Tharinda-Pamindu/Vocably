@@ -1,5 +1,6 @@
 package com.example.vocably;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        Intent mainIntent = getIntent();
+        String email = mainIntent.getStringExtra("EMAIL");
+
         recyclerView = findViewById(R.id.listOfWords);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         VocabularyDB db = VocabularyDB.getInstance(this);
         wordDao = db.wordDao();
 
-        wordDao.getAll().observe(this, words -> {
+        wordDao.getAll(email).observe(this, words -> {
             recyclerView.setAdapter(new WordAdapter(words, getLayoutInflater()));
         });
 
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 btnAddWordToDB.setOnClickListener(V -> {
                     ExecutorService executorService = Executors.newSingleThreadExecutor();
                     executorService.execute(() -> {
-                        wordDao.insert(new Word(txtEnterdWord.getEditText().getText().toString(),
+                        wordDao.insert(new Word(email, txtEnterdWord.getEditText().getText().toString(),
                                 txtEnterdDescription.getEditText().getText().toString()));
                     });
                     bottomSheetDialog.dismiss();

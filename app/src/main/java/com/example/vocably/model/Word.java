@@ -13,10 +13,13 @@ public class Word {
     private long id;
     private String word;
     private String meaning;
+    private String userEmail;
 
-    public Word(String word, String meaning) {
+
+    public Word(String userEmail, String word, String meaning) {
         this.word = word;
         this.meaning = meaning;
+        this.userEmail = userEmail;
     }
 
     @Ignore
@@ -27,7 +30,7 @@ public class Word {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -47,13 +50,21 @@ public class Word {
         this.meaning = meaning;
     }
 
-    @NonNull
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     @Override
     public String toString() {
         return "Word{" +
                 "id=" + id +
                 ", word='" + word + '\'' +
                 ", meaning='" + meaning + '\'' +
+                ", userEmail='" + userEmail + '\'' +
                 '}';
     }
 }
