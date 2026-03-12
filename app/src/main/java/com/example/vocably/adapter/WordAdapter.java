@@ -1,7 +1,5 @@
 package com.example.vocably.adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.card.MaterialCardView;
 
 import com.example.vocably.R;
-import com.example.vocably.db.dto.WordDto;
 import com.example.vocably.model.Word;
 import com.example.vocably.tts.TextToSpeechManager;
 import com.example.vocably.view.ViewWord;

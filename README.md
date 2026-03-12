@@ -1,16 +1,17 @@
 # Vocably
 
-AI-assisted vocabulary notebook for Android that lets learners capture new words, generate concise meanings with Gemini, and review them in a clean Material 3 interface with light/dark theming.
+ AI-assisted vocabulary notebook for Android that lets learners capture new words, generate concise meanings with Gemini, and review them in a clean Material 3 interface with light/dark theming plus built-in English text-to-speech.
 
 ## Project Description
-Vocably streamlines vocabulary building: users authenticate with Firebase, add words locally with Room, and optionally generate a short description via the Gemini API before saving. Words are shown in a RecyclerView-driven list with detail views, dark mode support, and a one-time onboarding flow to keep the experience lightweight.
+ Vocably streamlines vocabulary building: users authenticate with Firebase, add words locally with Room, optionally generate a short description via the Gemini API before saving, and hear pronunciations with English text-to-speech. Words are shown in a RecyclerView-driven list with detail views, dark mode support, and a one-time onboarding flow to keep the experience lightweight.
 
 ## Features
 - Email/password authentication (Firebase Authentication)
 - One-time onboarding screen that hands off to login
 - Add, generate (Gemini), view, and manage saved words
+- Hear pronunciations via English text-to-speech from list items and detail screens
 - Local persistence with Room (`VocabularyDB`, `WordDao`)
-- RecyclerView list with bottom sheet add/edit UX
+- RecyclerView list with bottom sheet add/edit UX and empty-state messaging
 - Material 3 theming with light/dark palettes and Glide-driven media
 
 ## Technologies Used
@@ -66,6 +67,7 @@ Outputs: `app/build/outputs/apk/{debug|release}/`.
 ## Usage
 - Register or log in (Firebase Auth).
 - Tap ➕ to add a word. Optionally tap **Generate** to fetch a Gemini description; edit and save.
+- Tap the speaker icon in the list or detail view to hear the pronunciation.
 - Tap a word card to view details (ensure navigation wiring in `WordAdapter`/`ViewWord`).
 
 ## Configuration Notes
