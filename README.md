@@ -77,7 +77,6 @@ Outputs: `app/build/outputs/apk/{debug|release}/`.
 - [Tharinda-Pamindu](https://github.com/Tharinda-Pamindu)
 - [Dilakshi-Sakila](https://github.com/Dilakshi13)
 - [Shirani-Hansika](https://github.com/shiranihansika)
-- Name 4 — Role
 
 ## Troubleshooting
 - Gemini errors: verify API key file, network, and model name; check Logcat tag `GeminiLLM`.
