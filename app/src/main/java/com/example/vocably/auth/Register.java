@@ -65,46 +65,6 @@ public class Register extends AppCompatActivity {
 
         btnRegister.setOnClickListener(V -> {
             //TODO : Implement register functionality
-
-            String email = txtEmail.getEditText().getText().toString();
-            String password = txtPassword.getEditText().getText().toString();
-            String confirmPassword = txtConfirmPassword.getEditText().getText().toString();
-
-            if (TextUtils.isEmpty(email)) {
-                Toast.makeText(this, "Please enter your email", Toast.LENGTH_LONG).show();
-                return;
-            } else if (TextUtils.isEmpty(password)) {
-                Toast.makeText(this, "Please enter your password", Toast.LENGTH_LONG).show();
-                return;
-            } else if (TextUtils.isEmpty(confirmPassword)) {
-                Toast.makeText(this, "Please confirm your password", Toast.LENGTH_LONG).show();
-                return;
-            } else if (!TextUtils.equals(password, confirmPassword)) {
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show();
-                return;
-            } else {
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d(TAG, "createUserWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    Intent intent = new Intent(Register.this, Login.class);
-                                    intent.putExtra("EMAIL", email);
-                                    startActivity(intent);
-                                    finish();
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(Register.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show();
-            }
         });
 
     }

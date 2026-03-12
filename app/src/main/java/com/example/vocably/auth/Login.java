@@ -78,7 +78,6 @@ public class Login extends AppCompatActivity {
 
         btnLogin.setOnClickListener(V -> {
             //TODO : Implement login functionality
-
             String email = txtEmail.getEditText().getText().toString();
             String password = txtPassword.getEditText().getText().toString();
 
@@ -106,6 +105,8 @@ public class Login extends AppCompatActivity {
                             }
                         }
                     });
+
+
         });
 
     }
