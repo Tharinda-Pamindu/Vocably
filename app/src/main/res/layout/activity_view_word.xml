@@ -9,6 +9,19 @@
     android:padding="16dp"
     tools:context=".view.ViewWord">
 
+    <ImageButton
+        android:id="@+id/btnSpeakWord"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/play_pronunciation"
+        android:padding="8dp"
+        android:src="@drawable/ic_volume_up_24"
+        android:tint="@color/vocably_text_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/lblWord"
         android:layout_width="0dp"
@@ -19,7 +32,7 @@
         android:textColor="@color/vocably_text_primary"
         android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSpeakWord"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
