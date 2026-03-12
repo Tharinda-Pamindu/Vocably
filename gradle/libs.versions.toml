@@ -12,6 +12,8 @@ firebaseAuth = "24.0.1"
 glide = "5.0.5"
 compiler = "5.0.5"
 room = "2.6.1"
+guava = "33.5.0-jre"
+generativeai = "0.9.0"
 
 [libraries]
 generativeai = { module = "com.google.ai.client.generativeai:generativeai", version.ref = "generativeai" }
