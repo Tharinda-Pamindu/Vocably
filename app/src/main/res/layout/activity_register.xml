@@ -9,7 +9,7 @@
     android:background="@drawable/register">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="420dp"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Register"
+                android:text="REGISTER"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -109,7 +109,8 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:text="Login"
-                    android:textColor="#2962FF" />
+                    android:textColor="#2962FF"
+                    android:textStyle="italic"/>
 
             </LinearLayout>
 

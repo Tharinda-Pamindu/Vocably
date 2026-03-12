@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Vocably" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/vocably_primary</item>
+        <item name="colorPrimaryContainer">@color/vocably_primary_dark</item>
+        <item name="colorSecondary">@color/vocably_secondary</item>
+        <item name="android:windowBackground">@color/vocably_surface</item>
+        <item name="android:textColor">@color/vocably_text_primary</item>
     </style>
 
     <style name="Theme.Vocably" parent="Base.Theme.Vocably" />

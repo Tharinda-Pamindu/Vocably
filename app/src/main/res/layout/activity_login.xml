@@ -9,9 +9,13 @@
     tools:context=".auth.Login">
 
     <com.google.android.material.card.MaterialCardView
-        android:layout_width="300dp"
-        android:layout_height="350dp"
-        app:cardCornerRadius="30dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginVertical="24dp"
+        android:padding="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -21,16 +25,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vocably_logo" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Login"
-                android:textSize="30sp"
+                android:paddingTop="8dp"
+                android:text="WELCOME BACK"
+                android:textColor="@color/vocably_text_primary"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -38,13 +52,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:hint="Email">
+                android:layout_marginTop="16dp"
+                android:hint="Email"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/vocably_primary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textEmailAddress" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:paddingVertical="12dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,40 +70,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
-                android:hint="Password">
+                android:layout_marginTop="12dp"
+                android:hint="Password"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeColor="@color/vocably_primary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textPassword" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingVertical="12dp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
+                style="@style/Widget.Material3.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="20dp"
+                android:checkable="true"
                 android:clickable="true"
                 android:focusable="true"
-                android:shadowColor="@color/black"
-                android:soundEffectsEnabled="true"
-                android:text="LOGIN" />
+                android:text="Login"
+                app:backgroundTint="@color/vocably_primary"
+                app:cornerRadius="12dp"
+                app:iconGravity="textStart"
+                app:rippleColor="@color/vocably_primary_dark"
+                app:strokeColor="@color/vocably_primary"
+                app:strokeWidth="0dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginVertical="20dp"
                 android:gravity="center"
-                android:layout_marginTop="20dp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:text="Don't have an account?"
-                    android:layout_marginEnd="5dp"/>
+                    android:textColor="@color/vocably_text_secondary" />
 
                 <TextView
                     android:id="@+id/clickToRegister"
@@ -94,7 +121,8 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:text="Register"
-                    android:textColor="#2962FF"/>
+                    android:textColor="@color/vocably_primary"
+                    android:textStyle="italic" />
 
             </LinearLayout>
 

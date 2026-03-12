@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.GetStarted"
-    android:backgroundTint="#88CFDB">
+    android:background="#88CFDB"
+    tools:context=".view.GetStarted">
 
     <ImageView
         android:id="@+id/animGetStartedLogo"
@@ -20,12 +20,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.372" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGetStarted"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="100dp"
-        android:text="GET START"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:text="Get Started"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:backgroundTint="@color/vocably_primary"
+        app:cornerRadius="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
