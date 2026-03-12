@@ -14,8 +14,8 @@ import java.util.List;
 
 @Dao
 public interface WordDao {
-    @Query("SELECT * FROM " + Constraint.TABLE_NAME)
-    LiveData<List<Word>> getAll();
+    @Query("SELECT * FROM " + Constraint.TABLE_NAME + " WHERE userEmail = :userEmail")
+    LiveData<List<Word>> getAll(String userEmail);
 
     @Query("SELECT * FROM " + Constraint.TABLE_NAME + " WHERE id = :id")
     Word getById(int id);

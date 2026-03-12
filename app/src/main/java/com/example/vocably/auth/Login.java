@@ -92,6 +92,7 @@ public class Login extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
 
                                 Intent dashBoardIntent = new Intent(Login.this, MainActivity.class);
+                                dashBoardIntent.putExtra("EMAIL", email);
                                 Bundle bundle = ActivityOptions.makeCustomAnimation(Login.this,
                                         android.R.anim.slide_in_left,
                                         android.R.anim.slide_out_right).toBundle();
