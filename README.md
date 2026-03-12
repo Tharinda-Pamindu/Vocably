@@ -74,9 +74,9 @@ Outputs: `app/build/outputs/apk/{debug|release}/`.
 - Avoid hardcoded colors; use theme attrs and palette resources.
 
 ## Team
-- [Tharinda-Pamindu](https://github.com/Tharinda-Pamindu)
-- [Dilakshi-Sakila](https://github.com/Dilakshi13)
-- [Shirani-Hansika](https://github.com/shiranihansika)
+- [D.T.P.D.Wickramasinghe ICT/2022/100 5703](https://github.com/Tharinda-Pamindu)
+- [D.D.S.S.Kumasaru ICT/2022/099 5702](https://github.com/Dilakshi13)
+- [H.M.S.H.K.Aberathna ICT/2022/098 5701](https://github.com/shiranihansika)
 
 ## Troubleshooting
 - Gemini errors: verify API key file, network, and model name; check Logcat tag `GeminiLLM`.

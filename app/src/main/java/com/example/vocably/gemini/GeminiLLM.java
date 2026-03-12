@@ -30,7 +30,7 @@ public class GeminiLLM {
         String apiKey = getApiKeyFromAssets(ctx);
 
         if (apiKey != null) {
-            GenerativeModel gm = new GenerativeModel("gemini-2.5-flash", apiKey);
+            GenerativeModel gm = new GenerativeModel("gemini-1.5-flash", apiKey);
             this.model = GenerativeModelFutures.from(gm);
         }
     }
