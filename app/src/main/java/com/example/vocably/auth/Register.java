@@ -103,6 +103,9 @@ public class Register extends AppCompatActivity {
                                 }
                             }
                         });
+                txtEmail.getEditText().setText("");
+                txtPassword.getEditText().setText("");
+                txtConfirmPassword.getEditText().setText("");
                 Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show();
             }
         });
