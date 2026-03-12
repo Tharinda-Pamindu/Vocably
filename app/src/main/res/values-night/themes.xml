@@ -1,7 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Vocably" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/vocably_primary</item>
+        <item name="colorPrimaryContainer">@color/vocably_primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/vocably_secondary</item>
+        <item name="colorOnSecondary">@color/vocably_text_primary</item>
+        <item name="colorSurface">@color/vocably_surface</item>
+        <item name="colorOnSurface">@color/vocably_text_primary</item>
+        <item name="android:windowBackground">@color/vocably_surface</item>
+        <item name="android:textColor">@color/vocably_text_primary</item>
     </style>
 </resources>
