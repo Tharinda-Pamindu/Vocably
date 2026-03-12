@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- App palette -->
+    <color name="vocably_primary">#3B5BDB</color>
+    <color name="vocably_primary_dark">#2C448F</color>
+    <color name="vocably_secondary">#FFB703</color>
+    <color name="vocably_surface">#F7F9FC</color>
+    <color name="vocably_card">#FFFFFF</color>
+    <color name="vocably_text_primary">#0F172A</color>
+    <color name="vocably_text_secondary">#475569</color>
+    <color name="vocably_border">#E2E8F0</color>
 </resources>
