@@ -45,11 +45,18 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
+        txtEmail = findViewById(R.id.txtEmail);
+        txtPassword = findViewById(R.id.txtPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        clickToRegister = findViewById(R.id.clickToRegister);
+
         try {
             Intent registeredUser = getIntent();
             if (registeredUser != null) {
                 String email = registeredUser.getStringExtra("EMAIL");
-                txtEmail.getEditText().setText(email);
+                if (email != null) {
+                    txtEmail.getEditText().setText(email);
+                }
             }
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
@@ -57,10 +64,6 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        txtEmail = findViewById(R.id.txtEmail);
-        txtPassword = findViewById(R.id.txtPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        clickToRegister = findViewById(R.id.clickToRegister);
 
         clickToRegister.setOnClickListener(V -> {
             Intent intent = new Intent(Login.this, Register.class);

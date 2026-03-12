@@ -26,8 +26,8 @@ public interface WordDao {
     @Update
     void update(Word word);
 
-    @Delete
-    void delete(Word word);
+    @Query("DELETE FROM " + Constraint.TABLE_NAME + " WHERE word = :word")
+    void delete(String word);
 
     @Delete
     void deleteAll(Word... words);

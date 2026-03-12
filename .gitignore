@@ -16,3 +16,5 @@ local.properties
 /assets/config.properties
 
 .fake
+app/src/main/assets/config.properties
+app/src/main/assets/config.properties
