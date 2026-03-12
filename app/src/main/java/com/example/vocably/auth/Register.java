@@ -109,6 +109,5 @@ public class Register extends AppCompatActivity {
                 Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }
