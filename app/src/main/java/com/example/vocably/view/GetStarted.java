@@ -1,6 +1,8 @@
 package com.example.vocably.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +20,8 @@ import com.example.vocably.auth.Login;
 public class GetStarted extends AppCompatActivity {
 
     private Button btnGetStarted;
+    private static final String PREFS_NAME = "vocably_prefs";
+    private static final String KEY_ONBOARDING_DONE = "onboarding_done";
 
 
     @Override
@@ -31,18 +35,28 @@ public class GetStarted extends AppCompatActivity {
             return insets;
         });
 
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        if (prefs.getBoolean(KEY_ONBOARDING_DONE, false)) {
+            startLoginAndFinish();
+            return;
+        }
+
         ImageView animLogo = findViewById(R.id.animGetStartedLogo);
-
         btnGetStarted = findViewById(R.id.btnGetStarted);
-
 
         Glide.with(this).asGif().
                 load(R.drawable.vocably_gs).into(animLogo);
 
         btnGetStarted.setOnClickListener(V -> {
-            Intent intent = new Intent(GetStarted.this, Login.class);
-            startActivity(intent);
+            prefs.edit().putBoolean(KEY_ONBOARDING_DONE, true).apply();
+            startLoginAndFinish();
         });
 
+    }
+
+    private void startLoginAndFinish() {
+        Intent intent = new Intent(GetStarted.this, Login.class);
+        startActivity(intent);
+        finish();
     }
 }
