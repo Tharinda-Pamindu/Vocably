@@ -52,4 +52,6 @@ dependencies {
     annotationProcessor(libs.compiler)
     implementation(libs.room.runtime)
     annotationProcessor(libs.room.compiler)
+    implementation(libs.generativeai)
+    implementation(libs.guava)
 }

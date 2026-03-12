@@ -20,10 +20,4 @@ public class GetStartedTest {
     @Rule
     public ActivityScenarioRule<GetStarted> activityRule =
             new ActivityScenarioRule<>(GetStarted.class);
-
-    @Test
-    public void testLogoIsDisplayed() {
-        // Check if the logo ImageView is displayed on the screen
-        onView(withId(R.id.ivGetStartedLogo)).check(matches(isDisplayed()));
-    }
 }

@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/vocably_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Vocably">
+
         <activity
             android:name=".auth.Register"
             android:exported="false" />
@@ -32,6 +33,9 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
