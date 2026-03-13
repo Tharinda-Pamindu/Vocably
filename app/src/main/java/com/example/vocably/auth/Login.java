@@ -65,7 +65,6 @@ public class Login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
         clickToRegister.setOnClickListener(V -> {
             Intent intent = new Intent(Login.this, Register.class);
 
