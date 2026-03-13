@@ -52,7 +52,6 @@ public class Register extends AppCompatActivity {
         clickToLogin = findViewById(R.id.clickToLogin);
 
         clickToLogin.setOnClickListener(V -> {
-            //TODO : Implement redirect to the login activity functionality
             Intent intent = new Intent(Register.this, Login.class);
 
             Bundle bundle = ActivityOptions.makeCustomAnimation(Register.this,
@@ -64,8 +63,6 @@ public class Register extends AppCompatActivity {
         });
 
         btnRegister.setOnClickListener(V -> {
-            //TODO : Implement register functionality
-
             String email = txtEmail.getEditText().getText().toString();
             String password = txtPassword.getEditText().getText().toString();
             String confirmPassword = txtConfirmPassword.getEditText().getText().toString();
