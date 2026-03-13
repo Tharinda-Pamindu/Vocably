@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.transition.Fade;
 import android.util.Log;
 import android.widget.Button;
@@ -77,36 +78,40 @@ public class Login extends AppCompatActivity {
         });
 
         btnLogin.setOnClickListener(V -> {
-            //TODO : Implement login functionality
             String email = txtEmail.getEditText().getText().toString();
             String password = txtPassword.getEditText().getText().toString();
 
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "signInWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(this, "Please enter your email", Toast.LENGTH_LONG).show();
+            } else if (TextUtils.isEmpty(password)) {
+                Toast.makeText(this, "Please enter your password", Toast.LENGTH_LONG).show();
+            } else {
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
 
-                                Intent dashBoardIntent = new Intent(Login.this, MainActivity.class);
-                                dashBoardIntent.putExtra("EMAIL", email);
-                                Bundle bundle = ActivityOptions.makeCustomAnimation(Login.this,
-                                        android.R.anim.slide_in_left,
-                                        android.R.anim.slide_out_right).toBundle();
-                                startActivity(dashBoardIntent, bundle);
-                                finish();
+                                    Intent dashBoardIntent = new Intent(Login.this, MainActivity.class);
+                                    dashBoardIntent.putExtra("EMAIL", email);
+                                    Bundle bundle = ActivityOptions.makeCustomAnimation(Login.this,
+                                            android.R.anim.slide_in_left,
+                                            android.R.anim.slide_out_right).toBundle();
+                                    startActivity(dashBoardIntent, bundle);
+                                    finish();
 
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(Login.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(Login.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        }
-                    });
-
+                        });
+            }
 
         });
 
